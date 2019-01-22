@@ -1,48 +1,74 @@
-* {
+/* *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+} */
+
+@keyframes intro {
+    0% {
+        opacity:0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+   
+    100% {
+      opacity: 0;
+    }
 }
 
+@keyframes logo {
+    0% {
+      opacity: 0;
+      transform: scale(1.5) translateY(-0.75em);
+    }
+    20% {
+      opacity: 1;
+    }
+    89% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateZ(-1000em);
+    }
+  }
+
+@keyframes crawl {
+    0% {
+        top: 110%;
+        transform: rotateX(20deg) translateZ(100px);
+    }
+    100% {
+        top: -6000px;
+        transform: rotateX(25deg) translateZ(-2500px);
+    }
+} 
+
 body {
+    margin: 5% 0% 0% 5%;
     width: 100%;
     height: 100%;
     background-image: url("https://cssanimation.rocks/demo/starwars/images/bg.jpg");
     overflow: hidden;
 }
 
-.title {
-    display: flex;
-    text-transform: uppercase;
-    color: blue;
-}
-
-@keyframes title {
-    from {
-      opacity:0.0;
-    }
-   
-    to {
-      opacity:1;
-}
-
-.fade {
-    position: relative;
-    width: 100%;
-    min-height: 60vh;
-    top: -25px;
-    background-image: linear-gradient(0deg, transparent, black 75%);
-    z-index: 1;
-  }
-
 .starWars {
-    display: flex;
+    display: grid;
+    grid-template-rows: 500px 500px 500px;
+    align-content: center;
     justify-content: center;
     position: relative;
     height: 800px;
     perspective: 400px;
     color: #f9dd35;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 500%;
     font-weight: 600;
     letter-spacing: 6px;
@@ -50,23 +76,33 @@ body {
     text-align: justify;
 } 
 
+.title {
+    align-self: end;
+    justify-self: start;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: blue;
+    line-height: 150%;
+    opacity: 0;
+    animation: intro 3s ease-in-out;
+}
+
+.logo {
+    justify-self: center;
+    perspective: 800px;
+    opacity: 0;
+    animation: logo 10s ease-out 4s;
+}
+
 .crawl {
     position: relative;
     top: 9999px;
     transform-origin: 50% 100%;
-    animation: crawl 60s linear;
+    animation: crawl 60s linear 5s;
 }
 
-@keyframes crawl {
-    0% {
-        top: 0;
-        transform: rotateX(20deg) translateZ(100px);
-    }
-    100% {
-        top: -6000px;
-        transform: rotateX(25deg) translateZ(-2500px);
-    }
-}
+
 
 
 

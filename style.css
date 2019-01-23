@@ -52,8 +52,7 @@
 } 
 
 body {
-    margin: 5% 0% 0% 5%;
-    width: 100%;
+    padding: 5%;
     height: 100%;
     background-image: url("https://cssanimation.rocks/demo/starwars/images/bg.jpg");
     overflow: hidden;
